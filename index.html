@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style/style.css" type="text/css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+  </head>
+  <body>
+    <div id="before" class="card">
+      <section class="title">
+        <h1>BMI Calculator</h1>
+      </section>
+      <section class="contentMain">
+        <div class="primary">
+          <h4>What is your gender?</h4>
+          <div class="primary-gender">
+            <button class="btn btn-outline-light">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                class="bi bi-gender-female"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5z"
+                />
+              </svg>
+            </button>
+
+            <button class="btn btn-outline-light">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                class="bi bi-gender-male"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="primary">
+          <h4>What's your age?</h4>
+          <div class="primary-age">
+            <input
+              type="text"
+              class="form-control"
+              id="valueAge"
+              min="1"
+              max="100"
+              value="26"
+            />
+            <div class="counter">
+              <div id="counter-plus">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-chevron-compact-up"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.776 5.553a.5.5 0 0 1 .448 0l6 3a.5.5 0 1 1-.448.894L8 6.56 2.224 9.447a.5.5 0 1 1-.448-.894l6-3z"
+                  />
+                </svg>
+              </div>
+              <div id="counter-minus">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-chevron-compact-down"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="primary primary-group">
+          <div class="primary-height">
+            <h4>What's your Height?</h4>
+            <div class="group">
+              <input
+                id="inputHeight"
+                type="text"
+                class="form-control"
+                value="180"
+              />
+              <small>cm</small>
+            </div>
+          </div>
+          <div class="primary-weight">
+            <h4>What's your Weight?</h4>
+            <div class="group">
+              <input
+                id="inputWeight"
+                type="text"
+                class="form-control"
+                value="60"
+              />
+              <small>kg</small>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="button">
+        <button
+          onclick="calculateBMI(event);"
+          type="button"
+          class="btn btn-outline-light"
+        >
+          Calculate your BMI
+        </button>
+      </section>
+    </div>
+    <div id="after" class="hidden">
+      <section class="title">
+        <h1>Your BMI is:</h1>
+        <div class="primary">
+          <h2 id="mainValue"></h2>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="35"
+            height="35"
+            fill="currentColor"
+            class="bi bi-tropical-storm"
+            viewBox="0 0 16 16"
+          >
+            <path d="M8 9.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+            <path
+              d="M9.5 2c-.9 0-1.75.216-2.501.6A5 5 0 0 1 13 7.5a6.5 6.5 0 1 1-13 0 .5.5 0 0 1 1 0 5.5 5.5 0 0 0 8.001 4.9A5 5 0 0 1 3 7.5a6.5 6.5 0 0 1 13 0 .5.5 0 0 1-1 0A5.5 5.5 0 0 0 9.5 2zM8 3.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"
+            />
+          </svg>
+        </div>
+      </section>
+      <section class="contentMain">
+        <div>
+          <h4 style="font-size: 1.5rem; text-align: center" id="mainTitle"></h4>
+          <div id="mainDescription"></div>
+        </div>
+      </section>
+      <section class="button">
+        <button class="button btn btn-light" onclick="refresh();">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-arrow-clockwise"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+            />
+            <path
+              d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
+            />
+          </svg>
+        </button>
+      </section>
+    </div>
+    <script src="/script/app.js"></script>
+  </body>
+</html>
